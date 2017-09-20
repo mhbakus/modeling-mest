@@ -47,11 +47,14 @@ class School:
 			print(eit)
 
 	def check_eit(self, file):
-		with open(file) as file:
-			for line in file:
-				eit = line.split(',')
-				if eit[1] not in ['South Africa', 'Nigeria', "Cote d'ivoire", "Kenya", "Ghana", "Zimbabwe"] :
-					print('{} is not a valid eit'.format(eit[0]))				
+		try:
+			with open(file) as file:
+				for line in file:
+					eit = line.split(',')
+					if eit[1] not in ['South Africa', 'Nigeria', "Cote d'ivoire", "Kenya", "Ghana", "Zimbabwe"] :
+						print('{} is not a valid eit'.format(eit[0]))		
+		except Exception as e:
+			print(e)				
 
 sami = Eit('samuel', 'nigeria')
 arinze = Eit('arinze', 'nigeria')
