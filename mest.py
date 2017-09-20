@@ -1,27 +1,32 @@
 import csv
-class Eit:
-	def __init__(self, names, nationalities):
-		self.names = names
-		self.nationalities = nationalities
+class Person:
+	def __init__(self, name, nationalitie):
+		self.name = name
+		self.nationalitie = nationalitie
 
-	def __repr__(self):
+	def __repr__(self, name, nationalitie):
 		return '''
 		Names : {}
-		Nationalities : {}'''.format(self.names, self.nationalities)
+		Nationalities : {}'''.format(self.name, self.nationalitie) 
+
+
+class Eit(Person):
+	def __init__(self, name, nationalitie):
+		super().__init__(name, nationalitie)
+
+	def __repr__(self):
+		super().__repr__(self)
 
 	def fun_facts(self):
-		return "Hey python is cool, but php is the master"
+		return "Hey python is cool, but php is the master of the web"
 
-class Fellows:
-	def __init__(self, name, nationality):
-		self.name = name
-		self.nationality = nationality
+class Fellows(Person):
+	def __init__(self, name, nationalitie):
+		super().__init__(name, nationalitie)
 		self.happiness = 0
 
 	def __repr__(self):
-		return '''
-		Name : {}
-		Nationality : {}'''.format(self.name, self.nationality)
+		super().__repr__(self)
 
 	def eat(self):
 		self.happiness += 1
