@@ -45,7 +45,7 @@ class School:
 		with open(file) as file:
 			for line in file:
 				eit = line.split(',')
-				if eit[1] not in ['South Africa', 'Nigeria', "Cote d'ivoire", "Kenya", "Ghana"] :
+				if eit[1] not in ['South Africa', 'Nigeria', "Cote d'ivoire", "Kenya", "Ghana", "Zimbabwe"] :
 					print('{} is not a valid eit'.format(eit[0]))				
 
 sami = Eit('samuel', 'nigeria')
