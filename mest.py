@@ -21,10 +21,14 @@ class Eit(Person):
 		return "Hey python is cool, but php is the master of the web"
 
 class Fellow(Person):
-
+	fellow_counter = 0
 	def __init__(self, name, nationalitie):
-		super().__init__(name, nationalitie)
-		self.happiness = 0
+		if Fellow.fellow_counter < 4:
+			super().__init__(name, nationalitie)
+			self.happiness = 0
+			Fellow.fellow_counter += 1
+		else:
+			raise Exception('We cannot afford to hire {}'.format(name))
 
 
 	def __repr__(self):
@@ -49,10 +53,7 @@ class School:
 			print(eit)
 
 	def add_fellow(self, fellow):
-		if len(self.fellows) <= 3:
-			self.fellows.append(fellow)
-		else:
-			raise Exception('you cant hire more than 4 fellows')
+		self.fellows.append(fellow)
 
 	def check_eit(self, file):
 		try:
@@ -70,15 +71,15 @@ Kerry = Fellow('Kerry', 'USA')
 Miishe = Fellow('Miishe', 'USA - GH')
 Pascal = Fellow('Pascal', 'DRC')
 Simpiwe = Fellow('Simpiwe', 'SA')
-eit = []
-fellow = []
-Mest = School(eit, fellow)
-Mest.add_fellow(andrew)
-Mest.add_fellow(faddai)
-Mest.add_fellow(Kerry)
-Mest.add_fellow(Miishe)
-Mest.add_fellow(Pascal)
-Mest.add_fellow(Simpiwe)
+# eit = []
+# fellow = []
+# Mest = School(eit, fellow)
+# Mest.add_fellow(andrew)
+# Mest.add_fellow(faddai)
+# Mest.add_fellow(Kerry)
+# Mest.add_fellow(Miishe)
+# Mest.add_fellow(Pascal)
+# Mest.add_fellow(Simpiwe)
 # Mest.check_eit('eits-2018.csv')
 
 
