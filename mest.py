@@ -20,10 +20,12 @@ class Eit(Person):
 	def fun_facts(self):
 		return "Hey python is cool, but php is the master of the web"
 
-class Fellows(Person):
+class Fellow(Person):
+
 	def __init__(self, name, nationalitie):
 		super().__init__(name, nationalitie)
 		self.happiness = 0
+
 
 	def __repr__(self):
 		super().__repr__(self)
@@ -46,6 +48,12 @@ class School:
 		for eit in self.eits:
 			print(eit)
 
+	def add_fellow(self, fellow):
+		if len(self.fellows) <= 3:
+			self.fellows.append(fellow)
+		else:
+			raise Exception('you cant hire more than 4 fellows')
+
 	def check_eit(self, file):
 		try:
 			with open(file) as file:
@@ -56,14 +64,23 @@ class School:
 		except Exception as e:
 			print(e)				
 
-sami = Eit('samuel', 'nigeria')
-arinze = Eit('arinze', 'nigeria')
+andrew = Fellow('Andrew', 'USA')
+faddai = Fellow('Francis', 'GH')
+Kerry = Fellow('Kerry', 'USA')
+Miishe = Fellow('Miishe', 'USA - GH')
+Pascal = Fellow('Pascal', 'DRC')
+Simpiwe = Fellow('Simpiwe', 'SA')
 eit = []
 fellow = []
 Mest = School(eit, fellow)
-Mest.check_eit('eits-2018.csv')
-Mest.add_eit(sami)
-Mest.add_eit(arinze)
+Mest.add_fellow(andrew)
+Mest.add_fellow(faddai)
+Mest.add_fellow(Kerry)
+Mest.add_fellow(Miishe)
+Mest.add_fellow(Pascal)
+Mest.add_fellow(Simpiwe)
+# Mest.check_eit('eits-2018.csv')
+
 
 
 
