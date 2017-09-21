@@ -9,6 +9,9 @@ class Person:
 		Names : {}
 		Nationalities : {}'''.format(self.name, self.nationalitie) 
 
+class MoneyException(Exception):
+	def __init__(self, message):
+		Exception.__init__(self, message)
 
 class Eit(Person):
 	def __init__(self, name, nationalitie):
@@ -28,7 +31,7 @@ class Fellow(Person):
 			self.happiness = 0
 			Fellow.fellow_counter += 1
 		else:
-			raise Exception('We cannot afford to hire {}'.format(name))
+			raise MoneyException('We cannot afford to hire {}'.format(name))
 
 
 	def __repr__(self):
